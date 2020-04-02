@@ -6,17 +6,59 @@
       </ion-toolbar>
     </ion-header>
     <ion-content id="content">
-      <div *ngFor="let page of menuPages">
-        <ion-menu-toggle auto-hide="true">
-          <ion-item detail button ion-button-effect>
-            <ion-button expand="full" (click)="openPage(page)" class="menu-button" disable-hover menuClose="start" fill="clear">
-              {{page.title}}
-            </ion-button>
-            <ion-icon [name]="page.icon" slot="start"></ion-icon>
-            <ion-ripple-effect></ion-ripple-effect>
-          </ion-item>
-        </ion-menu-toggle>
-      </div>
+      <ion-menu-toggle auto-hide="true">
+        <ion-item detail button ion-button-effect (click)="openPage('')" no-lines>
+          <ion-button size="default" expand="block" fill="clear" class="menu-button" disable-hover menuClose="start">
+            <ion-icon name="home-outline" slot="start"></ion-icon>
+
+            Home
+          </ion-button>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+        <ion-item detail button ion-button-effect (click)="openPage('/browse')" no-lines>
+          <ion-button size="default" expand="block" fill="clear" class="menu-button" disable-hover menuClose="start">
+            <ion-icon name="search-outline" slot="start"></ion-icon>
+
+            Browse
+          </ion-button>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+        <ion-item detail button ion-button-effect (click)="openPage('/browse/latest')" no-lines>
+          <ion-button size="default" expand="block" fill="clear" class="menu-button" disable-hover menuClose="start">
+            <ion-icon name="alarm-outline" slot="start"></ion-icon>
+
+            Latest
+          </ion-button>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+        <ion-item-divider>
+          <h4>Account</h4>
+        </ion-item-divider>
+        <ion-item detail button ion-button-effect (click)="openPage('/account/overview')" no-lines>
+          <ion-button size="default" expand="block" fill="clear" class="menu-button" disable-hover menuClose="start">
+            <ion-icon name="person-outline" slot="start"></ion-icon>
+
+            Overview
+          </ion-button>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+        <ion-item detail button ion-button-effect (click)="openPage('/account/entries')" no-lines>
+          <ion-button size="default" expand="block" fill="clear" class="menu-button" disable-hover menuClose="start">
+            <ion-icon name="construct-outline" slot="start"></ion-icon>
+            
+            My Contraptions
+          </ion-button>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+        <ion-item detail button ion-button-effect (click)="openPage('/account/settings')" no-lines>
+          <ion-button size="default" expand="block" fill="clear" class="menu-button" disable-hover menuClose="start">
+            <ion-icon name="settings-outline" slot="start"></ion-icon>
+
+            Settings
+          </ion-button>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+      </ion-menu-toggle>
     </ion-content>
   </ion-menu>
 

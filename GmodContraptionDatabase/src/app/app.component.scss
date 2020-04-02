@@ -2,6 +2,10 @@
 .menu-button {
     font-size: 100%;
     padding-right: 100%;
+    text-transform: none;
+    --background-hover-opacity: 0;
+    --background-activated-opacity: 0;
+    --ripple-color: transparent;
 }
 
 .menu-button:hover {

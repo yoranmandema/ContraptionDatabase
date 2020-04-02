@@ -1,17 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-import { ExploreContainerComponentModule } from '../../../explore-container/explore-container.module';
 
 import { AccountSettingsPage } from './account-settings.page';
 
-describe('Tab3Page', () => {
+describe('AccountSettingsPage', () => {
   let component: AccountSettingsPage;
   let fixture: ComponentFixture<AccountSettingsPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AccountSettingsPage],
-      imports: [IonicModule.forRoot(), ExploreContainerComponentModule]
+      declarations: [ AccountSettingsPage ],
+      imports: [IonicModule.forRoot()]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AccountSettingsPage);

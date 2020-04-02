@@ -30,7 +30,7 @@ export class AppComponent {
   }
 
   openPage (page) {
-    this.navCtrl.navigateForward(page.url);
+    this.navCtrl.navigateForward(page);
   }
 
   setupSideMenu () {
