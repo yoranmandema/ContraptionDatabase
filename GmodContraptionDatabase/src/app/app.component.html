@@ -1,3 +1,24 @@
 <ion-app>
+  <ion-menu side="start" menuId="first" contentId="content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content id="content">
+      <div *ngFor="let page of menuPages">
+        <ion-menu-toggle auto-hide="true">
+          <ion-item detail button ion-button-effect>
+            <ion-button expand="full" (click)="openPage(page)" class="menu-button" disable-hover menuClose="start" fill="clear">
+              {{page.title}}
+            </ion-button>
+            <ion-icon [name]="page.icon" slot="start"></ion-icon>
+            <ion-ripple-effect></ion-ripple-effect>
+          </ion-item>
+        </ion-menu-toggle>
+      </div>
+    </ion-content>
+  </ion-menu>
+
   <ion-router-outlet></ion-router-outlet>
 </ion-app>

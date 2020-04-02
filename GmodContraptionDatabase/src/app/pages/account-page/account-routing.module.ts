@@ -1,52 +1,52 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TabsPage } from './tabs.page';
+import { AccountPage } from './account.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
-    component: TabsPage,
+    path: 'account',
+    component: AccountPage,
     children: [
       {
-        path: 'tab1',
+        path: 'overview',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('./account-overview-tab/account-overview.module').then(m => m.AccountOverviewPageModule)
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'entries',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('./account-entries-tab/account-entries.module').then(m => m.AccountEntriesPageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'settings',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('./account-settings-tab/account-settings.module').then(m => m.AccountSettingsPageModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/account/overview',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/account/overview',
     pathMatch: 'full'
   }
 ];
