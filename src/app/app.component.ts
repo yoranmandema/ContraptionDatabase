@@ -4,6 +4,9 @@ import { Platform, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
+import * as dotenv from 'dotenv'
+import * as Countries from 'i18n-iso-countries';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -19,6 +22,8 @@ export class AppComponent {
     private navCtrl: NavController
   ) {
     this.initializeApp();
+
+    Countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
   }
 
   initializeApp() {

@@ -21,6 +21,14 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'contraption-select-modal',
+    loadChildren: () => import('./modals/contraption-select-modal/contraption-select-modal.module').then( m => m.ContraptionSelectModalPageModule)
+  },
+  {
+    path: 'register-car',
+    loadChildren: () => import('./pages/register-car/register-car.module').then( m => m.RegisterCarPageModule)
   }
 ];
 @NgModule({

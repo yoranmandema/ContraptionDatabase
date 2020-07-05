@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from "./home-routing.module";
 
 import { HomePage } from "./home.page";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
+import { ContraptionCardComponentModule } from 'src/app/components/contraption-card/contraption-card.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    ContraptionCardComponentModule
   ],
   declarations: [HomePage]
 })

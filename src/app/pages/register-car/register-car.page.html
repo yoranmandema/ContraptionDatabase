@@ -1,0 +1,203 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Register Car</ion-title>
+
+
+    <ion-buttons slot="end">
+      <ion-button color="secondary" fill="solid" (click)="submitForm()">
+        Submit
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+    <ion-card>
+      <ion-card-content>
+        <h1>General Information</h1>
+        <ion-item>
+          <ion-label position="floating">
+            Name:
+
+            <span class="error" *ngIf="isSubmitted && controls.name.errors?.required">*</span>
+          </ion-label>
+          <ion-input formControlName="name" placeholder="Name..."> </ion-input>
+        </ion-item>
+
+        <span class="error" *ngIf="isSubmitted && controls.name.errors?.minlength">Has to be alteast {{controls.name.errors?.minlength.requiredLength}} characters long</span>
+        <span class="error" *ngIf="isSubmitted && controls.name.errors?.maxlength">Has to be under {{controls.name.errors?.maxlength.requiredLength}} characters</span>
+
+        <ion-item>
+          <ion-label position="floating">
+            Description:
+
+            <span class="error" *ngIf="isSubmitted && controls.name.errors?.required">*</span>
+          </ion-label>
+          <ion-textarea
+            formControlName="description"
+            auto-grow="true"
+            placeholder="Description..."
+          ></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            Country:
+
+            <span class="error" *ngIf="isSubmitted && controls.country.errors?.required">*</span>
+          </ion-label>
+          <ion-select formControlName="country" placeholder="Select Country...">
+            <ion-select-option *ngFor="let country of countries.getNames('en') | keyvalue" [value]="country.key">{{ country.value }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+
+    <ion-card>
+      <ion-card-content>
+        <h1>Specifications</h1>
+        <ion-item>
+          <ion-label position="floating">
+            Type:
+
+            <span class="error" *ngIf="isSubmitted && controls.class.errors?.required">*</span>
+          </ion-label>
+          <ion-select formControlName="type" placeholder="Select Type...">
+            <ion-select-option value="car">Car</ion-select-option>
+            <ion-select-option value="motorcycle">Motorcycle</ion-select-option>
+            <ion-select-option value="motorcycle">Moped</ion-select-option>
+            <ion-select-option value="truck">Truck</ion-select-option>
+            <ion-select-option value="van">Van</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            Class:
+
+            <span class="error" *ngIf="isSubmitted && controls.type.errors?.required">*</span>
+          </ion-label>
+          <ion-select formControlName="class" placeholder="Select Class...">
+            <ion-select-option value="civilian">Civilian</ion-select-option>
+            <ion-select-option value="race">Race</ion-select-option>
+            <ion-select-option value="drag">Drag</ion-select-option>
+            <ion-select-option value="rally">Rally</ion-select-option>
+            <ion-select-option value="military">Military</ion-select-option>
+            <ion-select-option value="police">Police</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            Creation year:
+
+            <span class="error" *ngIf="isSubmitted && controls.creation_year.errors?.required">*</span>
+          </ion-label>
+          <ion-input formControlName="creation_year" type="numeric" placeholder="2020"> </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            Weight (kg):
+
+            <span class="error" *ngIf="isSubmitted && controls.weight.errors?.required">*</span>
+          </ion-label>
+          <ion-input formControlName="weight" placeholder="0"> </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            Engine:
+
+            <span class="error" *ngIf="isSubmitted && controls.engine.errors?.required">*</span>
+          </ion-label>
+          <ion-input formControlName="engine" placeholder="Engine..."> </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            Engine Position:
+
+            <span class="error" *ngIf="isSubmitted && controls.engine_position.errors?.required">*</span>
+          </ion-label>
+          <ion-select formControlName="engine_position" placeholder="Select Engine Position...">
+            <ion-select-option value="front">Front Engine</ion-select-option>
+            <ion-select-option value="rear">Rear Engine</ion-select-option>
+            <ion-select-option value="mid">Mid Engine</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            Fuel Type:
+
+            <span class="error" *ngIf="isSubmitted && controls.fuel_type.errors?.required">*</span>
+          </ion-label>
+          <ion-select formControlName="fuel_type" placeholder="Select Fuel Type...">
+            <ion-select-option value="petrol">Petrol</ion-select-option>
+            <ion-select-option value="diesel">Diesel</ion-select-option>
+            <ion-select-option value="electric">Electric</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            Drivetrain:
+
+            <span class="error" *ngIf="isSubmitted && controls.drivetrain.errors?.required">*</span>
+          </ion-label>
+          <ion-select formControlName="drivetrain" placeholder="Select Drivetrain...">
+            <ion-select-option value="rwd">Rear Wheel Drive</ion-select-option>
+            <ion-select-option value="awd">All Wheel Drive</ion-select-option>
+            <ion-select-option value="fwd">Front Wheel Drive</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            Gearbox Type:
+
+            <span class="error" *ngIf="isSubmitted && controls.gearbox_type.errors?.required">*</span>
+          </ion-label>
+          <ion-input formControlName="gearbox_type" placeholder="Gearbox type..."> </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            Top Speed (kmh):
+
+            <span class="error" *ngIf="isSubmitted && controls.topspeed.errors?.required">*</span>
+          </ion-label>
+          <ion-input formControlName="topspeed" placeholder="0"> </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            Horsepower:
+
+            <span class="error" *ngIf="isSubmitted && controls.horsepower.errors?.required">*</span>
+          </ion-label>
+          <ion-input formControlName="horsepower" placeholder="0"> </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            Torque (nm):
+
+            <span class="error" *ngIf="isSubmitted && controls.torque.errors?.required">*</span>
+          </ion-label>
+          <ion-input formControlName="torque" placeholder="0"> </ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- <ion-button type="submit">
+      Submit
+    </ion-button> -->
+  </form>
+</ion-content>

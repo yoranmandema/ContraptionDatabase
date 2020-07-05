@@ -34,3 +34,12 @@ ion-toolbar {
   --background: var(--ion-color-primary, #36454f);
   color: white;
 }
+
+ion-button {
+  text-transform: none;
+}
+
+.error { 
+  font-style: italic;
+  color: red;
+}

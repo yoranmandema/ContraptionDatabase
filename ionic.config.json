@@ -1,5 +1,11 @@
 {
-  "name": "GmodContraptionDatabase",
+  "name": "ContraptionDatabase",
   "integrations": {},
-  "type": "angular"
+  "type": "angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://localhost:8000/api"
+    }
+  ]
 }

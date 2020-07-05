@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>What would you like to upload?</ion-title>
+
+    <ion-button fill="clear" size="large" slot="end" (click)="dismiss()">
+      <ion-icon name="close" color="light"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card button (click)="openPage('/register-car')">
+          <img src="../../../assets/img/vehicle.jpg" />
+          <ion-card-header>
+            <ion-card-title>Vehicle</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card button (click)="openPage('/home')">
+          <img src="../../../assets/img/expression.jpg" />
+          <ion-card-header>
+            <ion-card-title>Expression</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
